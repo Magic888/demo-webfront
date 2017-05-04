@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <script type="text/javascript" src="js/crypto-js-3.1.9/crypto-js.js"></script>
+        <script>
+            function cipher(text, key){
+                var keyBuffer = new Buffer(key);
+                var keySingleByte = keyBuffer[0];
+
+                var textBuffer = new Buffer(text, 'utf8');
+                var textCipheredBuffer = new Buffer(textBuffer.length);
+                for (var i = 0, b; b = textBuffer[i]; i++) {
+                    textCipheredBuffer[i] = b ^ keySingleByte;
+                }
+
+                return  textCipheredBuffer.toString('hex');
+            }
+
+            function decipher(textCiphered, key){
+                var keyBuffer = new Buffer(key);
+                var keySingleByte = keyBuffer[0];
+
+                var textCipheredBuffer = new Buffer(textCiphered, 'hex');
+                var textDecipheredBuffer = new Buffer(textCipheredBuffer.length);
+                for (var i = 0, b; b = textCipheredBuffer[i]; i++) {
+                    textDecipheredBuffer[i] = b ^ keySingleByte;
+                }
+
+                return  textDecipheredBuffer.toString('utf8');
+            }
+
+            var textCiphered =  cipher('孔祥海','s');
+            var textDeciphered =  decipher(textCiphered,'s');
+            console.log('cipheredText: '+textCiphered);
+            console.log('decipheredText: '+textDeciphered);
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
