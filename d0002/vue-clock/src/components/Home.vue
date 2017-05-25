@@ -38,12 +38,14 @@
                 this.$data.hour = h
                 this.$data.minute = m
                 this.$data.second = s
+
                 setTimeout(() => {
                     this.nowTime()
                 }, 1000)
             },
             doClock () {
                 const nowTime = new Date()
+
                 //状态
                 this.$store.dispatch('changeStatus')
                 //时长
@@ -76,6 +78,7 @@
             color: #666;
             font-size: 18px;
         }
+
         span {
             font-size: 16px;
             font-weight: 700;
@@ -84,6 +87,7 @@
             display: inline-block;
         }
     }
+
     &_btn {
         height: 30px;
         background: #f0f0f0;

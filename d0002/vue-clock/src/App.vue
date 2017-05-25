@@ -58,9 +58,11 @@ export default {
 
 <style>
 @import './static/sass/_function.scss';
+
 body {
     overflow: hidden;
 }
+
 .clock_header {
     height: 42px;
     line-height: 42px;
@@ -81,6 +83,7 @@ body {
         }
     }
 }
+
 .clock_nav {
     height: 36px;
     line-height: 36px;
@@ -95,6 +98,7 @@ body {
         &.router-link-active {
             color: $color_red;
         }
+
         &:not(:last-child) {
             &::after {
                 content: '';
@@ -108,9 +112,11 @@ body {
         }
     }
 }
+
 .clock_container {
     @extend %clearfix;
 }
+
 .clock_sidebar {
     width: 30%;
     float: left;
@@ -118,6 +124,7 @@ body {
     border: 1px solid #ddd;
     margin-top: 10px;
 }
+
 .clock_router {
     width: 70%;
     float: left;
@@ -130,12 +137,15 @@ body {
         transition: all .3s linear;
     }
 }
+
 .slide-left-enter{
   opacity: 0;
   transform: translate3d(60px, 0, 0);
 }
+
 .slide-left-leave-active {
   opacity: 0;
   transform: translate3d(-60px, 0);
 }
 </style>
+
