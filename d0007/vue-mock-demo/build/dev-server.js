@@ -41,8 +41,6 @@ compiler.plugin('compilation', function (compilation) {
   })
 })
 
-app.use('/mock/news', mockRouterNews)
-
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
@@ -51,6 +49,8 @@ Object.keys(proxyTable).forEach(function (context) {
   }
   app.use(proxyMiddleware(options.filter || context, options))
 })
+
+app.use('/mock/news', mockRouterNews)
 
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
